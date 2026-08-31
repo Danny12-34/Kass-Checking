@@ -2,14 +2,6 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import CREST_SRC from './assets/Logo.png';
 
-// const NAV_ITEMS = [
-//   { to: '/', label: 'Home Dashboard', end: true },
-//   { to: '/Studentlist', label: 'Students List' },
-//   { to: '/MaterialsList', label: 'Materials List' },
-//   { to: '/DisDashboard', label: 'Dashboard' },
-//   { to: '/AllStuMat', label: 'All Checked Students' },
-// ];
-
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -197,35 +189,14 @@ export default function Navbar() {
         </button>
 
         <div className={`kass-links-wrap${menuOpen ? ' open' : ''}`}>
-          {NAV_ITEMS.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.end}
-              onClick={() => setMenuOpen(false)}
-              className={({ isActive }) => `kass-navlink${isActive ? ' active' : ''}`}
-            >
-              {item.label}
-            </NavLink>
-          ))}
-
-           <span className="kass-divider" />
-          {/* <NavLink
-            to="/Adminportal"
-            onClick={() => setMenuOpen(false)}
-            className={({ isActive }) => `kass-navlink login-link${isActive ? ' active' : ''}`}
-          >
-            Admin
-          </NavLink>
-
-          <span className="kass-divider" />
           <NavLink
-            to="/dirdispdashbo"
+            to="/"
+            end
             onClick={() => setMenuOpen(false)}
-            className={({ isActive }) => `kass-navlink login-link${isActive ? ' active' : ''}`}
+            className={({ isActive }) => `kass-navlink${isActive ? ' active' : ''}`}
           >
-            Director Dashb
-          </NavLink> */}
+            Home Dashboard
+          </NavLink>
 
           <span className="kass-divider" />
           <NavLink
