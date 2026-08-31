@@ -13,15 +13,14 @@ export default function DisciplineDashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Correctly match the property names from AuthContext ({ user, loading })
-  const { user, loading: authLoading, logout } = useAuth();
+  const { currentUser, authLoading, logout } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!authLoading && !user) {
-      navigate('/Login');
+    if (!authLoading && !currentUser) {
+      navigate('/login');
     }
-  }, [authLoading, user, navigate]);
+  }, [authLoading, currentUser, navigate]);
 
   useEffect(() => {
     fetchDashboardData();
@@ -31,10 +30,7 @@ export default function DisciplineDashboard() {
     try {
       setLoading(true);
 
-      // Include credentials: 'include' so backend cookies/sessions pass through
-      const studentsRes = await fetch('https://kass-checking-backend.vercel.app/api/v1/students-list', {
-        credentials: 'include',
-      });
+      const studentsRes = await fetch('https://kass-checking-backend.vercel.app/api/v1/students-list');
       if (!studentsRes.ok) throw new Error('Failed to fetch students list');
       const studentsData = await studentsRes.json();
       setTotalStudents(studentsData.length || 0);
@@ -44,15 +40,12 @@ export default function DisciplineDashboard() {
       );
       setTotalClasses(uniqueClasses.size);
 
-      const matRes = await fetch('https://kass-checking-backend.vercel.app/api/v1/getall', {
-        credentials: 'include',
-      });
+      const matRes = await fetch('https://kass-checking-backend.vercel.app/api/v1/getall');
       if (!matRes.ok) throw new Error('Failed to fetch materials configuration');
       const materialsData = await matRes.json();
 
       const studMatRes = await fetch(
-        `https://kass-checking-backend.vercel.app/api/v1/get-students-materials?term=${selectedTerm}`,
-        { credentials: 'include' }
+        `https://kass-checking-backend.vercel.app/api/v1/get-students-materials?term=${selectedTerm}`
       );
       if (!studMatRes.ok) throw new Error('Failed to fetch student material records');
       const studMatData = await studMatRes.json();
@@ -89,14 +82,14 @@ export default function DisciplineDashboard() {
 
   const handleLogout = async () => {
     await logout();
-    navigate('/Login');
+    navigate('/login');
   };
 
   const totalSafeStudents = totalStudents > 0 ? totalStudents : 1;
   const checkedPercentage = Math.round((checkedStudentsCount / totalSafeStudents) * 100);
   const lackingPercentage = Math.round((lackingStudentsCount / totalSafeStudents) * 100);
 
-  const displayName = user ? (user.full_name || user.name) : null;
+  const displayName = currentUser ? currentUser.full_name : null;
   const initials = displayName
     ? displayName.split(' ').filter(Boolean).slice(0, 2).map((n) => n[0]).join('').toUpperCase()
     : '';
@@ -124,7 +117,7 @@ export default function DisciplineDashboard() {
             <div>
               <p className="dd-eyebrow">Discipline Office · Student Register</p>
               <h1 className="dd-title">Material Compliance Ledger</h1>
-              <p className="dd-subtitle">Karenga Adventist Secondary School</p>
+              <p className="dd-subtitle">Karenge Adventist Secondary School</p>
             </div>
           </div>
 
@@ -148,7 +141,7 @@ export default function DisciplineDashboard() {
               </div>
             )}
 
-            {user && (
+            {currentUser && (
               <button onClick={handleLogout} className="dd-logout-btn">
                 Log out
               </button>
