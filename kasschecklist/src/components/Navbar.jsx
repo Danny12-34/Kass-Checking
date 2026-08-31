@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import CREST_SRC from './assets/Logo.png';
 
-const NAV_ITEMS = [
-  { to: '/', label: 'Home Dashboard', end: true },
-  { to: '/Studentlist', label: 'Students List' },
-  { to: '/MaterialsList', label: 'Materials List' },
-  { to: '/DisDashboard', label: 'Dashboard' },
-  { to: '/AllStuMat', label: 'All Checked Students' },
-];
+// const NAV_ITEMS = [
+//   { to: '/', label: 'Home Dashboard', end: true },
+//   { to: '/Studentlist', label: 'Students List' },
+//   { to: '/MaterialsList', label: 'Materials List' },
+//   { to: '/DisDashboard', label: 'Dashboard' },
+//   { to: '/AllStuMat', label: 'All Checked Students' },
+// ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -210,7 +210,7 @@ export default function Navbar() {
           ))}
 
            <span className="kass-divider" />
-          <NavLink
+          {/* <NavLink
             to="/Adminportal"
             onClick={() => setMenuOpen(false)}
             className={({ isActive }) => `kass-navlink login-link${isActive ? ' active' : ''}`}
@@ -225,7 +225,7 @@ export default function Navbar() {
             className={({ isActive }) => `kass-navlink login-link${isActive ? ' active' : ''}`}
           >
             Director Dashb
-          </NavLink>
+          </NavLink> */}
 
           <span className="kass-divider" />
           <NavLink
