@@ -195,7 +195,7 @@ export default function Navbar() {
             onClick={() => setMenuOpen(false)}
             className={({ isActive }) => `kass-navlink${isActive ? ' active' : ''}`}
           >
-            Home Dashboard
+            Home
           </NavLink>
 
           <span className="kass-divider" />
