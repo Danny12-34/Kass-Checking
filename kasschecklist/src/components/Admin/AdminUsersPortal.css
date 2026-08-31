@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+.adm-layout {
+    display: flex;
+    min-height: 100vh;
+    background: #f8fafc;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #1e293b;
+}
+
+.adm-main {
+    flex: 1;
+    padding: 32px;
+    max-width: 1320px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* ===== Page header ===== */
+.adm-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.adm-eyebrow {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #6366f1;
+}
+
+.adm-title {
+    margin: 4px 0 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+}
+
+.adm-subtitle {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.adm-add-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+    transition: all 0.2s ease;
+}
+
+.adm-add-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+}
+
+/* ===== Stat cards ===== */
+.adm-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 1200px) {
+    .adm-stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .adm-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.adm-stat-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.adm-stat-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+}
+
+.adm-accent-slate { background: #94a3b8; }
+.adm-accent-indigo { background: #6366f1; }
+.adm-accent-amber { background: #f59e0b; }
+.adm-accent-emerald { background: #10b981; }
+.adm-accent-rose { background: #f43f5e; }
+
+.adm-stat-label {
+    margin: 0;
+    font-size: 11.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #64748b;
+}
+
+.adm-stat-value {
+    margin: 10px 0 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.adm-value-indigo { color: #4f46e5; }
+.adm-value-amber { color: #d97706; }
+.adm-value-emerald { color: #059669; }
+.adm-value-rose { color: #dc2626; }
+
+/* ===== Panel ===== */
+.adm-panel {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+
+.adm-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 22px 26px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.adm-panel-title {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.adm-panel-subtitle {
+    margin: 4px 0 0;
+    font-size: 12.5px;
+    color: #64748b;
+}
+
+.adm-panel-controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.adm-search-input {
+    padding: 9px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 13.5px;
+    width: 230px;
+    outline: none;
+}
+
+.adm-search-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.adm-role-select {
+    padding: 9px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 13.5px;
+    background: #ffffff;
+    color: #334155;
+    cursor: pointer;
+    outline: none;
+}
+
+/* ===== Table ===== */
+.adm-table-responsive {
+    overflow-x: auto;
+}
+
+.adm-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.adm-table thead tr {
+    background: #f8fafc;
+    color: #64748b;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.adm-table th,
+.adm-table td {
+    padding: 14px 22px;
+}
+
+.adm-col-actions {
+    text-align: right;
+}
+
+.adm-table tbody tr {
+    border-bottom: 1px solid #f1f5f9;
+    transition: background 0.15s ease;
+}
+
+.adm-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.adm-cell-name {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.adm-cell-email {
+    color: #475569;
+    font-size: 13.5px;
+}
+
+.adm-cell-date {
+    color: #94a3b8;
+    font-size: 12.5px;
+}
+
+.adm-empty-row {
+    text-align: center;
+    color: #94a3b8;
+    font-style: italic;
+    padding: 40px;
+}
+
+.adm-role-badge {
+    display: inline-block;
+    padding: 4px 11px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.adm-role-admin {
+    background: #eef2ff;
+    color: #4338ca;
+    border: 1px solid #c7d2fe;
+}
+
+.adm-role-director {
+    background: #fffbeb;
+    color: #b45309;
+    border: 1px solid #fde68a;
+}
+
+.adm-role-officer {
+    background: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+}
+
+.adm-row-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.adm-btn-edit {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.adm-btn-edit:hover {
+    background: #dbeafe;
+}
+
+.adm-btn-delete {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.adm-btn-delete:hover {
+    background: #fee2e2;
+}
+
+/* ===== Loading / error states ===== */
+.adm-state-container {
+    flex: 1;
+    padding: 60px;
+    text-align: center;
+    font-size: 15px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.adm-error-state {
+    color: #dc2626;
+}
+
+/* ===== Modal ===== */
+.adm-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    padding: 20px;
+}
+
+.adm-modal {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 28px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.adm-modal-title {
+    margin: 0 0 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.adm-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.adm-form-label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.adm-form-input {
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-family: inherit;
+    outline: none;
+    color: #0f172a;
+}
+
+.adm-form-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.adm-form-error {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    margin: 0;
+}
+
+.adm-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.adm-btn-cancel {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    padding: 9px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.adm-btn-cancel:hover {
+    background: #e2e8f0;
+}
+
+.adm-btn-save {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: #ffffff;
+    border: none;
+    padding: 9px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.adm-btn-save:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
